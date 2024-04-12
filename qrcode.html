@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>500LRB's qr code generator</title>
+        <link rel="icon" href="images/linus.png" type="image/x-icon" />
+        <link href="styles/style.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="qrbox">
+                <div class="qrheader">
+                    <h2 class="headd">500LRB's qr code generator</h2>
+                </div>
+                <div class="image">
+                    <img class="woah" src="" alt="">
+                </div>
+                <div class="qrcode">
+                    <input pattern="[A-Za-z0-9]+" onkeydown="if(['Space'].includes(arguments[0].code)){return false;}" name="bro" type="text" placeholder="enter text to generate (no spaces)" class="texte" size="60"/>
+                </div>
+                <input type="button" class="submitter" value="generate">
+            </div>
+         </div>
+         <script src="scripts/thing.js"></script>
+    </body>
+</html>
