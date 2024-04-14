@@ -1,18 +1,32 @@
 const image = document.querySelector(".woah");
-const sub = document.querySelector(".submitter")
-const text = document.querySelector(".texte")
-const copy = document.querySelector(".copyfromclip")
+const sub = document.querySelector(".submitter");
+const text = document.querySelector(".texte");
+const copy = document.querySelector(".copyfromclip");
+usebackup = "false"
 let api = "https://api.qrserver.com/v1/create-qr-code/?format=svg";
-let backupapi = "https://quickchart.io/qr?text="
+let backupapi = "https://quickchart.io/qr?text=";
 let apisize = 200;
-let usebackup = false; //declares if it should use the backup api or not
 
-try { //checks if the main api is okay and switches to the backup api if it fails to connect
-    fetch(api);
-} catch (error) {
-    console.error(error);
-    usebackup = true
+
+async function checkforbackup() {
+    try {
+    const apirespon = await fetch(api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=L" + "&data=test");
+    apirespon;
+    if (apirespon.ok) {
+        usebackup = "false";
+        console.log("main api functional");
+        console.log(apirespon.status);
+    } else {
+      usebackup = "true";
+      console.warn("main api failed resorting to backup");
+    }  
+    } catch (error) {
+        usebackup = "true";
+        console.warn("main api failed resorting to backup, if statment didnt catch error");
+    }
 }
+
+checkforbackup()
 
 sub.addEventListener("click", updatebutton);
 
@@ -20,7 +34,7 @@ async function updatebutton() {
     if (text.value === "" | text.value === " ") { //check if the text value is empty so id doesnt send random empty requests
         return false;
     } else {
-        if (usebackup === true) { //checks if it should use the backup api or not
+        if (usebackup === "true") { //checks if it should use the backup api or not
             if (text.value.length >= 100) {//if the text length is over 100 it makes the size larger to prevent scanning issues
                 apisize = 400;
                 image.src = backupapi + encodeURIComponent(text.value) + "&format=svg" + "&margin=0" + "&ecLevel=L" + "&size=" + apisize;
