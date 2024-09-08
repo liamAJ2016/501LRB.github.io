@@ -10,7 +10,7 @@ let apisize = 200;
 
 async function checkforbackup() {
     try {
-    const apirespon = await fetch(api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=L" + "&data=test");
+    const apirespon = await fetch(api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=H" + "&data=test");
     apirespon;
     if (apirespon.ok) {
         usebackup = "false";
@@ -37,21 +37,21 @@ async function updatebutton() {
         if (usebackup === "true") { //checks if it should use the backup api or not
             if (text.value.length >= 100) {//if the text length is over 100 it makes the size larger to prevent scanning issues
                 apisize = 400;
-                image.src = backupapi + encodeURIComponent(text.value) + "&format=png" + "&margin=0" + "&ecLevel=L" + "&size=" + apisize;
+                image.src = backupapi + encodeURIComponent(text.value) + "&format=png" + "&margin=0" + "&ecLevel=H" + "&size=" + apisize;
                 console.log("text is over 50 characters and im using backup")
             } else {//sticks to normal size if its not over 100 characters
                 apisize = 200;
-                image.src = backupapi + encodeURIComponent(text.value) + "&format=png" + "&margin=0" + "&ecLevel=L" + "&size=" + apisize;
+                image.src = backupapi + encodeURIComponent(text.value) + "&format=png" + "&margin=0" + "&ecLevel=H" + "&size=" + apisize;
                 console.log("text is under 50 characters and im using backup")
             }  
         } else { //uses main api if its working 
             if (text.value.length >= 100) {//if the text length is over 100 it makes the size larger to prevent scanning issues
                 apisize = 400;
-                image.src = api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=L" + "&data=" + encodeURIComponent(text.value);
+                image.src = api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=H" + "&data=" + encodeURIComponent(text.value);
                 console.log("text is over 50 characters")
             } else {//sticks to normal size if its not over 100 characters
                 apisize = 200;
-                image.src = api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=L" + "&data=" + encodeURIComponent(text.value);
+                image.src = api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=H" + "&data=" + encodeURIComponent(text.value);
                 console.log("text is under 50 characters")
             }  
         }
