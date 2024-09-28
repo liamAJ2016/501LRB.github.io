@@ -1,6 +1,6 @@
 html {
     background-color: rgb(46, 46, 46);
-    font-family: "Gabarito", sans-serif;
+    font-family: "Comic Sans MS";
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -65,7 +65,7 @@ body {
     padding: 20px;
 }
 .container div{
-    font-family: "Gabarito", sans-serif;
+    font-family: "Comic Sans MS";
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
