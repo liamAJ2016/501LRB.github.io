@@ -1,4 +1,4 @@
-const image = document.querySelector(".woah");
+/*const image = document.querySelector(".woah");
 const sub = document.querySelector(".submitter");
 const text = document.querySelector(".texte");
 const copy = document.querySelector(".copyfromclip");
