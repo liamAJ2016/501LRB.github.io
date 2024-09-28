@@ -1,13 +1,9 @@
-* {
-    font-family: "Comic Sans MS"
-}
-
-
 html {
     background-color: rgb(46, 46, 46);
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    font-family: "Comic Sans MS"
     }
 
 
