@@ -31,25 +31,25 @@ checkforbackup()
 sub.addEventListener("click", updatebutton);
 
 async function updatebutton() {
-    if (text.value === "" | text.value === " ") { //check if the text value is empty so id doesnt send random empty requests
+    if (text.value === "" | text.value === " ") { 
         return false;
     } else {
-        if (usebackup === "true") { //checks if it should use the backup api or not
-            if (text.value.length >= 100) {//if the text length is over 100 it makes the size larger to prevent scanning issues
+        if (usebackup === "true") { 
+            if (text.value.length >= 100) {
                 apisize = 400;
                 image.src = backupapi + encodeURIComponent(text.value) + "&format=png" + "&margin=0" + "&ecLevel=H" + "&size=" + apisize;
                 console.log("text is over 50 characters and im using backup")
-            } else {//sticks to normal size if its not over 100 characters
+            } else {
                 apisize = 200;
                 image.src = backupapi + encodeURIComponent(text.value) + "&format=png" + "&margin=0" + "&ecLevel=H" + "&size=" + apisize;
                 console.log("text is under 50 characters and im using backup")
             }  
-        } else { //uses main api if its working 
-            if (text.value.length >= 100) {//if the text length is over 100 it makes the size larger to prevent scanning issues
+        } else { 
+            if (text.value.length >= 100) {
                 apisize = 400;
                 image.src = api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=H" + "&data=" + encodeURIComponent(text.value);
                 console.log("text is over 50 characters")
-            } else {//sticks to normal size if its not over 100 characters
+            } else {
                 apisize = 200;
                 image.src = api + "&size=" + apisize + "x" + apisize + "&margin=0" + "&ecc=H" + "&data=" + encodeURIComponent(text.value);
                 console.log("text is under 50 characters")
